@@ -1,10 +1,14 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { OcrModule } from './ocr/ocr.module';
+import { Module } from '@nestjs/common'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { OcrModule } from './ocr/ocr.module'
+import { ConfigModule } from '@nestjs/config'
 
 @Module({
-  imports: [OcrModule],
+  imports: [
+    ConfigModule.forRoot(),
+    OcrModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
